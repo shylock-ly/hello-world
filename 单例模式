@@ -1,0 +1,24 @@
+单利模式（singleton）:指一个类只有一个实例，且该类能自行创建这个实例的一种模式
+
+单利模式要点：
+  -某个类只能有一个实例
+  -它必须自行创建这个实例
+  -单例类必须给所有其他对象提供这一实例。
+
+单利模式的实现：
+  例：
+  class Singleton{
+  //一个必须要有的静态实例 就是要点中说的那一个实例
+    private static Singleton sing=new Singleton；
+ //必须要有无参构造器
+    public Singleton(){}
+ //必须要有一个静态方法 返回值类型为类 单例实例通过该方法提供给其他新创建的对象
+   public static Singleton getInstance{
+   return sing;
+   }
+   
+  public static void main(String[] args){
+     Singleton a=Singleton.getInstance(); //后面方法返回的是sing这个单利 然后提供给a对象
+  }
+  
+  这样 所有新创建的对象 都是sing这一个实例
