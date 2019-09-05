@@ -1,0 +1,31 @@
+
+向上转型：将父类引用指向成子类 转换成功后 子类中除了重写父类的方法可以使用 其他的方法就不能使用了
+例 父类father 子类son
+public Father{
+   public void show(System.out.println("这是父类"))； 
+}
+
+public Son extends Father{
+   public void show(System.out.println("这是子类"))；//重写父类的方法
+   public void show1(){}；//子类的方法
+}
+
+public test{
+  Father a=new Son();  //向上转型
+  a.show();   //调用的为子类重写的方法 结果为：这是子类  show1()不能够调用
+}
+
+向下转型：
+子类 强转成父类 前提是 父类的引用指向子类才可以进行强转(即向上转型) 所有说 只有经历过向上转型的父类才可以进行
+向下转型
+
+例 Father a=new Father();
+   Son b=(Son)a
+这个就会报错，因为a对象没有指向子类 此时的a只是父类的一个实例化 没有进行向上转型
+
+Father a=new Son(); //向上转型
+Son b=(Son)a;//向下转型
+这个就有用了 此时的b可以重新调用子类的所有方法
+总结 向上转型是为了让父类调用方法时引用子类重写的方法 但这个就丢失了子类的其他方法 而再进行向下转型 就可以再次
+找回这些丢失发方法
+必须向上转型后才可以向下转型 否则任何情况都不可以
