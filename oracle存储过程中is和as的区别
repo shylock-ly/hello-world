@@ -1,0 +1,3 @@
+在存储过程（procedure）中和函数（function）中没有区别
+在视图（view）中只能用as不能用is
+在游标（cursor）中只能用is不能用as
